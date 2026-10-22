@@ -1,0 +1,20 @@
+{
+  "name": "sistema-eventos-modulo-inscripciones",
+  "version": "2.0.0",
+  "description": "Módulo de gestión de inscripciones y control de cupos para eventos académicos y culturales",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/seed.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "helmet": "^8.0.0",
+    "mysql2": "^3.12.0"
+  },
+  "engines": { "node": ">=18" }
+}

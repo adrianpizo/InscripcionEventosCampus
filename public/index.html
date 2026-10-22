@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inscripciones a eventos</title>
+  <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+  <header><h1>Eventos académicos y culturales</h1><p>Gestión de inscripciones y control de cupos</p></header>
+  <main>
+    <section class="panel" id="login-panel">
+      <h2>Iniciar sesión</h2>
+      <p class="ayuda">Cuentas de prueba disponibles en el README.</p>
+      <form id="login-form">
+        <label>Correo <input name="correo" type="email" required autocomplete="username"></label>
+        <label>Contraseña <input name="contraseña" type="password" required autocomplete="current-password"></label>
+        <button>Ingresar</button>
+      </form>
+    </section>
+    <section class="panel oculto" id="session-panel">
+      <div class="session-line"><span id="welcome"></span><button class="secondary" id="logout">Cerrar sesión</button></div>
+    </section>
+    <p id="mensaje" role="status" aria-live="polite"></p>
+    <section class="panel">
+      <h2>Eventos disponibles</h2>
+      <button class="secondary" id="refresh">Actualizar eventos</button>
+      <div id="events" class="eventos"></div>
+    </section>
+    <section class="panel oculto" id="my-panel">
+      <h2>Mis inscripciones</h2>
+      <div id="my-list"></div>
+    </section>
+    <section class="panel oculto" id="organizer-panel">
+      <h2>Inscripciones del sistema</h2>
+      <p class="ayuda">Disponible para organizador y administrador.</p>
+      <div id="all-list"></div>
+      <h3>Registrar asistencia con QR</h3>
+      <form id="qr-form">
+        <label>Identificador del evento <input name="id_evento" type="number" min="1" required></label>
+        <label>Token QR de la inscripción <input name="token_qr" minlength="64" maxlength="64" required></label>
+        <button>Registrar asistencia</button>
+      </form>
+    </section>
+  </main>
+  <footer>Proyecto académico · Node.js, Express y MySQL</footer>
+  <script src="/app.js" defer></script>
+</body>
+</html>
