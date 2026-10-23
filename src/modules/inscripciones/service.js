@@ -12,7 +12,7 @@ async function inscribir(idParticipante, idEvento) {
       "SELECT id_evento, fecha_inicio, capacidad, estado FROM eventos WHERE id_evento = ? FOR UPDATE",
       [idEvento]
     );
-    if (!eventRows.length) throw httpError(404, "El evento no existe en la base.", "EVENT_NOT_FOUND");
+    if (!eventRows.length) throw httpError(404, "El evento no existe.", "EVENT_NOT_FOUND");
     const event = eventRows[0];
     if (event.estado !== "PUBLICADO") throw httpError(409, "El evento no está publicado o fue cancelado.");
     if (!registrationIsOpen(event.fecha_inicio)) throw httpError(409, "Las inscripciones cerraron dos horas antes del evento.");
